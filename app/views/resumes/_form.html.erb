@@ -1,0 +1,31 @@
+<!--partial render 的檔案，不要用實體變數（不要去空中抓資料）-->
+<%= form_with(model: resume) do |form| %>
+
+<!-- 這段 form_with 會自動設定 url:"/resume", method:"post" -->
+
+<div class="fields">
+  <%= form.label :title, "標題" %> 
+  <%= form.text_field :title, autocompelete:"of", autofocus: "true" %>
+</div>
+
+<div class="fields">
+  <%= form.label :content, "內容" %>
+  <%= form.text_area :content %>
+</div>
+
+<!--
+ <select name="resume[status]">
+  <option value="draft">草稿</option>
+  <option value="public">發佈</option>
+</select>
+ -->
+
+<div class="fields">
+  <%= form.label :status, "狀態" %> 
+  <%= form.select :status, Resume.all_status%>
+  <!-- 如果不在 model 使用類別方法：Resume.new.all_status -->
+</div>
+
+<%= form.submit %>
+
+<% end %>

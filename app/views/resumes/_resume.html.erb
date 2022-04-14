@@ -1,0 +1,18 @@
+<li>
+  <%#= link_to resume.title, resume_path(id: resume[:id]) %>
+  <%= link_to resume.title, resume_path(resume) %>
+  |
+  <%= link_to "X", resume_path(resume), method: "delete", data: {confirm: "are you sure?"} %>
+  <%# turbolinks: 攔截超連結，使用 data-method 動態做出表單使用 post 送出內容 %>
+  <%# 做出的內容：1. _method:delete 2. token %>
+</li>
+
+
+<%# 印出title %>
+<%# <li> %>
+  <%#= resume.title %>
+<%# </li> %>
+
+<%# resumes.each do |resume| %>
+  <%# <li>= resume.title</li> %>
+<%# end %>

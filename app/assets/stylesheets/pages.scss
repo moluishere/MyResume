@@ -1,3 +1,58 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+* {
+  font-size: 20px;
+}
+
+.flash {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: goldenrod;
+  padding: 0 10px;
+  border-radius: 8px;
+}
+
+.fields {
+  margin: 5px;
+}
+
+.field_with_errors {
+  display: inline-block;
+
+  label {
+    color: red;
+  }
+
+  input[type="text"],
+  textarea {
+    border: red 2px solid;
+  }
+}
+
+// nav
+.nav {
+  font-weight: bolder;
+  padding: 0;
+  display: flex;
+  background-color: aqua;
+  justify-content: space-between;
+  align-items: center;
+  .logol {
+    padding: 0 10px;
+  }
+}
+
+.sign {
+  display: flex;
+  div {
+    padding: 5px;
+  }
+}
+
+.singItem {
+  display: inline-block;
+  padding: 10px;
+}

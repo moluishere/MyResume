@@ -1,0 +1,37 @@
+<h1>會員註冊</h1>
+
+<% if @user.errors.any? %>
+
+<ul>
+    <% @user.errors.full_messages.each do |messages| %>
+        <li><%=messages%></li>
+    <% end %>
+</ul>
+
+<% end %>
+
+<%= form_with(model: @user)  do |form| %>
+
+<div class="field">
+  <%= form.label(:email, "信箱")%>
+  <%= form.text_field(:email, {autocomplete: "off"})%>
+</div>
+
+<div class="field">
+  <%= form.label :username, "帳號" %>
+  <%= form.text_field :username, autocomplete: "off" %>
+</div>
+
+<div class="field">
+  <%= form.label :password, "密碼" %>
+  <%= form.password_field :password %>
+</div>
+
+<div class="field">
+  <%= form.label :password_confirmation , "密碼驗證" %>
+  <%= form.password_field :password_confirmation %>
+</div>
+
+<%= form.submit "註冊" %>
+
+<% end %>

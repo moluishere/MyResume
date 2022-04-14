@@ -1,0 +1,18 @@
+<h1>登入</h1>
+
+<%= form_with(scope:"user") do |form| %>
+<%# scope: 將傳過來的那一包資料定義一個 key %>
+
+<div class="field">
+  <%= form.label(:username, "帳號")%>
+  <%= form.text_field(:username, {autocomplete: "off"})%>
+</div>
+
+<div class="field">
+  <%= form.label(:password, "密碼")%>
+  <%= form.password_field(:password, {autocomplete: "off"})%>
+</div>
+
+<%= form.submit("登入")%>
+
+<% end %>

@@ -2,15 +2,21 @@
 <html>
   <head>
     <title>MyResume</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %> <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- simple css  -->
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+
+    <%= stylesheet_link_tag 'application', media: 'all',
+    'data-turbolinks-track': 'reload' %> <%= javascript_pack_tag 'application',
+    'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <!-- 渲染處 -->
+    <%= render "shared/navbar"  %> 
+    <%= render "shared/flash" if flash %>
     <%= yield %>
   </body>
 </html>
