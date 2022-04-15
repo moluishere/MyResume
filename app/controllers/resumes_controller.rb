@@ -1,13 +1,15 @@
 class  ResumesController < ApplicationController
-  before_action :find_resume, only:[:show, :edit, :update, :destroy]
+  before_action :find_resume, only:[:show]
   # before_action :find_resume, except:[:index, :new, :creste]
+  before_action :find_my_resume, only:[:edit, :update, :destroy]
+  before_action :authenticate_user, except:[:index, :show]
+  
   def index
+    # render html: current_user
     @resumes = Resume.all
-    # render(html: "hello")
-    # render(file: "檔案路徑")
-    # 如果 action 有指定渲染的檔案，會優先渲染該檔案
-    # 如果沒有指定，則是按照 controller 對應的檔案進行渲染(index.html.erb)
-    # 所以如果沒有 action ，還是會去渲染 index.html.erb
+  end
+
+  def my
   end
 
   def new
@@ -15,7 +17,11 @@ class  ResumesController < ApplicationController
   end
 
   def create
-    @resume = Resume.new(resume_params)
+    # @resume = Resume.new(resume_params)
+    # @resume.user_id = current_user.id
+
+    @resume = current_user.resumes.build(resume_params)
+    # has_many 生出來的方法
 
     if @resume.save
       redirect_to resumes_path, notice: "新增成功"
@@ -26,7 +32,7 @@ class  ResumesController < ApplicationController
 
   def show
   end
-
+ 
   def destroy
     @resume.destroy
     redirect_to resumes_path, notice:"已刪除"
@@ -51,6 +57,14 @@ class  ResumesController < ApplicationController
   end
 
   def find_resume
-    @resume =  Resume.find(params[:id])
+    # 待補
+    # @resume =  Resume.find(params[:id])
+    # if @resume.status != "published"  
   end
+
+  def find_my_resume
+    # @resume = Resume.find_by!(id: params[:id] && user_id:current_user.id )
+    @resume = current_user.resumes.find(params[:id])
+  end
+
 end

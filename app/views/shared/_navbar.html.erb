@@ -1,6 +1,11 @@
 <nav class="navbar">
   <div class="brand">厲害的履歷</div>
   <ul class="actions">
+  <% if user_signed_in? %>
+  <%# ? ->　回傳 true or false %>
+  <li><%= current_user.email %></li>
+  <li><%= link_to "登出", root_path %></li>
+  <% end %>
     <li><%= link_to "註冊", sign_up_users_path %></li>
     <li><%= link_to "登入", sign_in_users_path %></li>
   </ul>

@@ -2,9 +2,15 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true, confirmation: true, length: { minimum: 6}
-  # 必填；驗證；長度最小為 6
+  # presence: true 必填
+  # uniqueness: true 不重複
+  # 長度最小為 6
 
-  before_save :encrypt_password
+  # relationships
+  has_many :resumes
+
+  # callback
+  before_create :encrypt_password
 
   def self.login(user_data) #類別方法
     account = user_data[:account]
