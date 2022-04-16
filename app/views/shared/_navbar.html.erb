@@ -1,12 +1,13 @@
 <nav class="navbar">
-  <div class="brand">厲害的履歷</div>
+  <div class="brand"><%= link_to "厲害的履歷", root_path %></div>
   <ul class="actions">
-  <% if user_signed_in? %>
-  <%# ? ->　回傳 true or false %>
-  <li><%= current_user.email %></li>
-  <li><%= link_to "登出", root_path %></li>
-  <% end %>
-    <li><%= link_to "註冊", sign_up_users_path %></li>
-    <li><%= link_to "登入", sign_in_users_path %></li>
+    <% if user_signed_in? %>
+      <li><%= current_user.email %></li>
+      <li><%= link_to "我的履歷", my_resumes_path %></li>
+      <li><%= link_to "登出", sessions_path, method: "delete" %></li>
+    <% else %>
+      <li><%= link_to "註冊", sign_up_users_path %></li>
+      <li><%= link_to "登入", sign_in_users_path %></li>
+    <% end %>
   </ul>
 </nav>

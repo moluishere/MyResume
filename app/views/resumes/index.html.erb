@@ -1,9 +1,8 @@
 <h1>這裡是履歷列表</h1>
 
-<%= link_to "新增履歷" , new_resume_path %>
-
 <ul>
   <%#= render partial: "resume", locals: {resumes: @resumes} %>
+  
   <%#= render partial: "resume", collection: @resumes %>
   <%# collection:做了兩事，將實體變數轉成區域變數後跑迴圈 -> 渲染_resume.html.erb  %>
   <%= render @resumes %>

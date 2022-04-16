@@ -1,18 +1,18 @@
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
+// import { Application } from "@hotwired/stimulus";
+// import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
 
 import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 
 import "channels";
-import "scripts/index";
-// 可以寫成 import "scripts"
+import "scripts/index.js"; // 可以寫成 import "scripts"
+// import "controllers";
 
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
-console.log(123);
+// window.Stimulus = Application.start();
+// const context = require.context("../controllers", true, /\.js$/);
+// Stimulus.load(definitionsFromContext(context));

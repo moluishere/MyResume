@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   # callback
   before_create :encrypt_password
+  # 這個流程應該在註冊帳號時發生
 
   def self.login(user_data) #類別方法
     account = user_data[:account]
